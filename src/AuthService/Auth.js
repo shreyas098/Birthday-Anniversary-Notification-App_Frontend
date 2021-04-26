@@ -42,7 +42,7 @@ class Auth{
         credentials were wrong and to display an error message.
 
     */
-    signIn = async (username, password,updateSigned, updateError) => {
+    signIn = async (username, password,updateSigned, updateLoading, updateError) => {
         
         const requestOptions = {
             headers: { 
@@ -59,17 +59,19 @@ class Auth{
 
           const response = await Axios.post('/api/Login/token',body, requestOptions);
           localStorage.setItem("token", response.data.token)
-          this.getDatawithToken(response.data.token,updateSigned)
+          await this.getDatawithToken(response.data.token,updateSigned)
+          
           updateSigned(true)   // signin was successfull
-          updateError(false); // donot display the error
         }
 
         catch(err){
           console.log("Error ! " + err)
-          updateError(true); // display the error
+          updateError(true);
+          updateLoading(false);
           updateSigned(false) // signin was unsucessfull.
-          return
         }
+
+        
        
     }
 
