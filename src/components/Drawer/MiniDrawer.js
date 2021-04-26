@@ -15,10 +15,14 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Auth from "../../AuthService/Auth";
 import { Link } from 'react-router-dom';
+import CakeIcon from '@material-ui/icons/Cake';
+import ContactMailIcon from '@material-ui/icons/ContactMail';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import {blue, red} from '@material-ui/core/colors';
+import FaceOutlinedIcon from '@material-ui/icons/FaceOutlined';
 
 const drawerWidth = 240;
 
@@ -119,7 +123,7 @@ export default function MiniDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Mini variant drawer
+            Kiprosh Birthday Messeger
           </Typography>
         </Toolbar>
       </AppBar>
@@ -143,23 +147,38 @@ export default function MiniDrawer(props) {
         </div>
         <Divider />
         <List>
-          {["Add wishes", 'Birthdays', 'Templates'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+        
+        <ListItem button>
+              <ListItemIcon><MailIcon style={{ color: blue[800] }}/></ListItemIcon>
+              <ListItemText primary="Add Wishes" />
             </ListItem>
-          ))}
+        
+        <ListItem button>
+          <ListItemIcon><CakeIcon style={{ color: blue[800] }} /> </ListItemIcon>
+          <ListItemText primary="Birthdays" />
+        </ListItem>
+
+        <ListItem button>
+          <ListItemIcon><ContactMailIcon style={{ color: blue[800] }} /> </ListItemIcon>
+          <ListItemText primary="Templates" />
+        </ListItem>
+
         </List>
         <Divider />
         <List>
-          {['Sign Out'].map((text, index) => (
-            <Link key={text} to="/signin" onClick={()=>{Auth.signOut(props.updateSigned)}} >
-              <ListItem button >
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-              </Link>
-          ))}
+         
+       
+        <ListItem >
+            <ListItemIcon><FaceOutlinedIcon style={{ color: blue[800] }}/></ListItemIcon>
+            <ListItemText primary="User"/>
+          </ListItem>
+          <Link to="/signin" onClick={()=>{Auth.signOut(props.updateSigned)}} >
+          <ListItem button style={{ color: red[700] }}  >
+            <ListItemIcon><ExitToAppIcon style={{ color: red[700] }}  /></ListItemIcon>
+            <ListItemText primary="Sign Out"/>
+          </ListItem>
+          </Link>
+          
         </List>
       </Drawer>
       <main className={classes.content}>
