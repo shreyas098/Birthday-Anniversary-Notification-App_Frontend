@@ -152,7 +152,7 @@ export default function MiniDrawer(props) {
         </List>
         <Divider />
         <List>
-          {['Log Out'].map((text, index) => (
+          {['Sign Out'].map((text, index) => (
             <Link key={text} to="/signin" onClick={()=>{Auth.signOut(props.updateSigned)}} >
               <ListItem button >
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
