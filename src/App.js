@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./components/Home/Home.component";
+import PrivateRoute from "./AuthService/PrivateRoute/PrivateRoute.Route";
+import React, {useState} from "react";
+import SignIn from "./components/SignIn/SignIn.component";
+import { Switch, Route, BrowserRouter as Router, Redirect} from "react-router-dom";
 
-function App() {
+function App(){
+
+  /*
+      signed determines if the current session has a authedcated user or not
+      updateSigned is drilled down as props to update it at various children
+  */
+  const [signed,updateSigned] = useState(false);
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <PrivateRoute Component={Home} display={signed} updateDisplay={updateSigned}/>
+            </Route>
+            <Route exact path="/signin"> 
+              {
+                /*
+                  Conditional redering moved here to simplify the signin component
+                */
+                signed?
+                <Redirect to="/" />:
+                <SignIn signed={signed}  updateSigned={updateSigned}/>
+
+              } 
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    )
 }
 
 export default App;
