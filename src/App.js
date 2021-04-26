@@ -1,4 +1,4 @@
-import Home from "./components/Home/Home.component";
+import Drawer from "./components/Drawer/MiniDrawer";
 import PrivateRoute from "./AuthService/PrivateRoute/PrivateRoute.Route";
 import React, {useState} from "react";
 import SignIn from "./components/SignIn/SignIn.component";
@@ -17,7 +17,7 @@ function App(){
         <Router>
           <Switch>
             <Route exact path="/">
-              <PrivateRoute Component={Home} display={signed} updateDisplay={updateSigned}/>
+              <PrivateRoute Component={Drawer} display={signed} updateDisplay={updateSigned}/>
             </Route>
             <Route exact path="/signin"> 
               {
