@@ -78,9 +78,8 @@ class Auth{
       localStorage.removeItem("token");
       /*
         Redirection is handled by calling component.
-
-        Currently using anchor tag for redirection. So the states are cleared automatically.
     */
+      updateSigned(false);
     }
 }
 
