@@ -21,6 +21,7 @@ import Alert from '@material-ui/lab/Alert';
 export default function SignIn(props){
 
     
+
     /*
         TextField holds simple value of inputs
     */
@@ -61,8 +62,7 @@ export default function SignIn(props){
             
             event.preventDefault();
             updateLoading(true);
-            await Auth.signIn(textField.usernameText,textField.passwordText, props.updateSigned, updateError);
-            updateLoading(false);
+            await Auth.signIn(textField.usernameText,textField.passwordText, props.updateSigned, updateLoading, updateError);
         }
 
     return (
