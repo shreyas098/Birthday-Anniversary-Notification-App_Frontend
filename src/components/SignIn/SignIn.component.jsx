@@ -60,6 +60,7 @@ export default function SignIn(props){
     */
     const updateAuth = async(event)=>{
             
+            updateError(false);
             event.preventDefault();
             updateLoading(true);
             await Auth.signIn(textField.usernameText,textField.passwordText, props.updateSigned, updateLoading, updateError);
