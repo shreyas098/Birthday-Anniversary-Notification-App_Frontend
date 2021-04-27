@@ -10,10 +10,10 @@ class Auth{
         Function uses the token earler recevied by the client to request
         for current associate data.
 
-        dataUpdator : the hook updator function that will update the current user data.
+        dataUpdater : the hook updator function that will update the current user data.
         Currently it is a bool value to indicate if the data fetching was successfull
     */
-    getDatawithToken = async(token,dataUpdator)=>{
+   validateToken = async(token,statusUpdater)=>{
 
        const requestOptions = {
          headers:{
@@ -22,13 +22,13 @@ class Auth{
        }
 
         try{
-              await Axios.get("/api/Associate/getcurrentassociate",requestOptions)
-              dataUpdator(true); // replace with dataUpdator(response) 
+             await Axios.get("/api/Associate/getcurrentassociate",requestOptions)
+             statusUpdater(true);  
         }
 
         catch(err){
           console.log("Error ! " + err)
-          dataUpdator(false);  // fetching failed (Do not allow current component to be displayed)
+          statusUpdater(false);  // fetching failed (Do not allow current component to be displayed)
           return;
         }
     }
@@ -59,8 +59,6 @@ class Auth{
 
           const response = await Axios.post('/api/Login/token',body, requestOptions);
           localStorage.setItem("token", response.data.token)
-          await this.getDatawithToken(response.data.token,updateSigned)
-          
           updateSigned(true)   // signin was successfull
         }
 
