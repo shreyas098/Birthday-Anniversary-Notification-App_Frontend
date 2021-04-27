@@ -21,9 +21,6 @@ function App(){
             </Route>
             <Route exact path="/signin"> 
               {
-                /*
-                  Conditional redering moved here to simplify the signin component
-                */
                 signed?
                 <Redirect to="/" />:
                 <SignIn signed={signed}  updateSigned={updateSigned}/>
