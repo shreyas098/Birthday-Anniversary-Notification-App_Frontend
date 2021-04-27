@@ -36,8 +36,8 @@ export default function MiniDrawer(props) {
   const [user, updateUser] = useState({});
 
   const [menuStatus, updateMenuStatus] = useState({
-    wish:false,
-    birthdays:true
+    wish:true,
+    birthdays:false
   })
 
   useEffect(()=>{
