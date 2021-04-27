@@ -1,0 +1,46 @@
+.birthday-card{
+    
+    border: 2px solid grey;
+    border-radius: 5px;
+    height: 450px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+    background: url("../../Pictures/birthday2.png"), url("../../Pictures/birthday3.png"), url("../../Pictures/birthday4.png"), url("../../Pictures/birthday1.png");
+    background-repeat: no-repeat;
+    background-size: 4.5em;
+    background-position: top left, top right, bottom left, bottom right;
+}
+
+.name{
+    
+    margin-top: 1.6em;
+    word-wrap: normal;
+    padding: 6px 0em 0em 0em;
+
+}
+
+.birth-date{
+    background-color: #3f51b5;
+    color:white;
+    padding:0.6em 1em;
+    border-radius: 5px;
+}
+
+.help-text{
+    margin-top: 1em;
+    
+}
+
+.message{
+    position: relative;
+    top: 1em;
+    width:100%;
+    margin-top: 2em;
+}
+
+.submit-btn{
+    margin-top: 2.5em;
+}
