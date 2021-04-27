@@ -2,7 +2,7 @@ import Axios from "axios";
 
 class Data{
 
-    getCurrentAssociate = async (token, dataUpdater) =>{
+    getCurrentAssociate = async (token) =>{
 
         const requestOptions = {
             headers:{
