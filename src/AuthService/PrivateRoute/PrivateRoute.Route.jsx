@@ -30,8 +30,8 @@ const PrivateRoute = ({Component, display, updateDisplay,  fallbackLink="/signin
         
 
     // Validate the token.
-    Auth.getDatawithToken(token, updateDisplay);
-
+    Auth.validateToken(token, updateDisplay);
+  
     // if token was valid, it had updated the display hook (via dataUpdator). If not then fallback
     if(!display) {
         history.push(fallbackLink)
