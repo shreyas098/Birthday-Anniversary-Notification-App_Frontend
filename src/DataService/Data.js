@@ -1,7 +1,13 @@
 import Axios from "axios";
 
+/*
+  Responsible for fetching data from the api
+*/
 class Data{
 
+    /*
+      Returns the current looged in associate
+    */
     getCurrentAssociate = async (token) =>{
 
         const requestOptions = {
@@ -19,6 +25,51 @@ class Data{
              console.log("Error ! " + err)
              return;
            }
+    }
+    
+    /*
+      Returns the associate data whose birthday is not tommorrow but in any upcoming days
+    */
+    getupComingBirthdays = async(token)=>{
+
+      const requestOptions = {
+        headers:{
+          'Authorization' : 'Bearer '+token
+        }
+      }
+
+       try{
+            const response = await Axios.get("/api/Associate/getupcomingbirthdays",requestOptions)
+            console.log(response)
+       }
+
+       catch(err){
+         console.log("Error ! " + err)
+         return;
+       }
+    }
+
+
+    /*
+      Returns the associate data whose birthday is tommorow
+    */
+
+    getCurrentBirthdays = async(token) =>{
+
+      const requestOptions = {
+        headers:{
+          'Authorization' : 'Bearer '+token
+        }
+      }
+      try{
+        const response = await Axios.get("/api/Associate/getcurrentbirthdays",requestOptions)
+       return response
+   }
+
+   catch(err){
+     console.log("Error ! " + err)
+     return;
+   }
     }
 }
 
