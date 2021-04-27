@@ -35,6 +35,7 @@ export default function MiniDrawer(props) {
   const [open, setOpen] = useState(false);
   const [user, updateUser] = useState({});
 
+  // For the menu selection
   const [menuStatus, updateMenuStatus] = useState({
     wish:true,
     birthdays:false
@@ -150,7 +151,7 @@ export default function MiniDrawer(props) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {
-          menuStatus.wish? <Wish />: menuStatus.birthdays? <Birthdays /> : "Unexpected Menu state"
+          menuStatus.wish? <Wish currentUserId={user.data?user.data.id:null}/>: menuStatus.birthdays? <Birthdays /> : "Unexpected Menu state"
         }
       </main>
     </div>
