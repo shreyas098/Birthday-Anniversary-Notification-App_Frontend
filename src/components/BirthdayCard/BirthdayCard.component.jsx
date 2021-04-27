@@ -1,25 +1,31 @@
+/*
+        Card the holds data about the associate whose birthdate is tommorow and provides form to submit a message
+*/
+
 import React from 'react';
 import "./BirthdayCard.styles.css";
 import TextField from '@material-ui/core/TextField';
 import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
 
-export default function BirthdayCard() {
+
+export default function BirthdayCard(props) {
  
 
   return (
     <div className="birthday-card">
         <div className="birth-date">
-            21 April, 2021
+            Happy {props.date}! 
         </div>
         <div className="name">
 
-            <h2>FirstName LastName</h2>
+            <h2>{props.name}</h2>
         </div>
 
         <div className="help-text">
-            Send Firstname your Wishes!
+            Send {props.name} your Wishes!
         </div>
+        
         <div className="message">
         <TextField
           id="outlined-full-width"
@@ -46,7 +52,6 @@ export default function BirthdayCard() {
       </div>
 
       <div className="birthday-svg-1">
-          {/* <img alt="birthday svg" src={svg1} /> */}
       </div>
     </div>
   );
