@@ -26,6 +26,7 @@ import useStyles from "./MiniDrawer.styles";
 import Data from "../../DataService/Data";
 import Wish from '../Wish/Wish.Component';
 import Birthdays from '../Birthdays/Birthdays.Component';
+import "./MiniDrawer.styles.css";
 export default function MiniDrawer(props) {
 
 
@@ -90,9 +91,11 @@ export default function MiniDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
+          <div class="centered">
           <Typography variant="h6" noWrap>
             Kiprosh Birthday Messeger
           </Typography>
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer
