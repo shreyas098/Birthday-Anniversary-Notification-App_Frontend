@@ -11,26 +11,24 @@ const Wish = (props)=>{
     
     useEffect(()=>{
         Data.getCurrentBirthdays(localStorage.getItem("token"))
-      .then(res=>{updateBirthdayAssociates(res)})
+      .then(res=>{updateBirthdayAssociates(res.data)})
       },[])
-    
-
     
     return (
         <div className="add-wishes">
-        <h1>Birthdays Tommorow</h1>
+        <h1 className="title">Birthdays Tommorow</h1>
         <div className="birthday-cards" > 
 
             {
-                birthdayAssociates.data?
-                birthdayAssociates.data.filter(({assoicateId})=>(
+                birthdayAssociates.length?
+                birthdayAssociates.filter(({assoicateId})=>(
                     assoicateId!==props.currentUserId
-                )).map(({assoicateId, associateName, dob})=>{
+                )).map(({assoicateId, associateName, dob, imageUrl})=>{
                     
                    
                     dob = new Date().getFullYear() - Number(dob.split("T")[0].split("-")[0])
 
-                    return <BirthdayCard key={assoicateId} name={associateName} date={dob}/>
+                    return <BirthdayCard key={assoicateId} img = {imageUrl} name={associateName} date={dob}/>
                 })
                 :
                
