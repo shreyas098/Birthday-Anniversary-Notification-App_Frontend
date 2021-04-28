@@ -31,7 +31,6 @@
 
 }
 
-
 .dp{
     width: 10.5em;
     border-radius: 50%;
@@ -64,8 +63,8 @@
 
 }
 ::-webkit-input-placeholder {
-    color: white !important;/*Change the placeholder color*/
-    opacity: 1 !important; /*Change the opacity between 0 and 1*/
+    color: white !important;
+    opacity: 0.9 !important; 
 }
 
 .MuiOutlinedInput-inputMultiline{
