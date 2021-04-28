@@ -27,13 +27,17 @@ import Data from "../../DataService/Data";
 import Wish from '../Wish/Wish.Component';
 import Birthdays from '../Birthdays/Birthdays.Component';
 import "./MiniDrawer.styles.css";
+
+
 export default function MiniDrawer(props) {
-
-
 
   const classes = useStyles();
   const theme = useTheme();
+
+  // For Side Bar
   const [open, setOpen] = useState(false);
+
+  //Current User
   const [user, updateUser] = useState({});
 
   // For the menu selection
@@ -42,12 +46,28 @@ export default function MiniDrawer(props) {
     birthdays:false
   })
 
-  useEffect(()=>{
-    Data.getCurrentAssociate(localStorage.getItem("token"))
-  .then(res=>{updateUser(res)})
-  },[])
+  const [isMounted, updateMounted] = useState(true);
 
-  
+  /*
+      To fetch data on mounting and cleanup on unmount
+  */
+  useEffect(()=>{
+  Data.getCurrentAssociate(localStorage.getItem("token"))
+    .then(res=>{ 
+        if(res) 
+        {
+            if(isMounted)
+            updateUser(res)
+        }
+    });
+
+    return ()=>{
+    updateMounted(false);
+    }
+  },[isMounted])
+
+
+  //Sidebar
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -56,6 +76,7 @@ export default function MiniDrawer(props) {
     setOpen(false);
   };
 
+  // Type of menu
   const MenuIsNowWishes =() =>{
     updateMenuStatus({
       wish:true,
@@ -91,9 +112,9 @@ export default function MiniDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <div class="centered">
+          <div className="centered">
           <Typography variant="h6" noWrap>
-            Kiprosh Birthday Messeger
+            Kiprosh Birthday Portal
           </Typography>
           </div>
         </Toolbar>
@@ -132,8 +153,6 @@ export default function MiniDrawer(props) {
         </List>
         <Divider />
         <List>
-         
-       
         <ListItem >
             <ListItemIcon><FaceOutlinedIcon style={{ color: blue[800] }}/></ListItemIcon>
             <ListItemText primary={
@@ -141,15 +160,15 @@ export default function MiniDrawer(props) {
               user.data.firstName + " " + user.data.lastName
               :"User"
             }/>
-          </ListItem>
-          <Link to="/signin" onClick={()=>{Auth.signOut(props.updateSigned)}} >
-          <ListItem button style={{ color: red[700] }}  >
-            <ListItemIcon><ExitToAppIcon style={{ color: red[700] }}  /></ListItemIcon>
-            <ListItemText primary="Sign Out"/>
-          </ListItem>
-          </Link>
-          
-        </List>
+        </ListItem>
+        <Link to="/signin" onClick={()=>{Auth.signOut(props.updateSigned)}} >
+        <ListItem button style={{ color: red[700] }}  >
+          <ListItemIcon><ExitToAppIcon style={{ color: red[700] }}  /></ListItemIcon>
+          <ListItemText primary="Sign Out"/>
+        </ListItem>
+        </Link>
+        
+      </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
