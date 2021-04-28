@@ -28,7 +28,7 @@ const Wish = (props)=>{
                    
                     dob = new Date().getFullYear() - Number(dob.split("T")[0].split("-")[0])
 
-                    return <BirthdayCard key={assoicateId} img = {imageUrl} name={associateName} date={dob}/>
+                    return <BirthdayCard key={assoicateId} id={assoicateId} img = {imageUrl} name={associateName} date={dob}/>
                 })
                 :
                
