@@ -1,0 +1,46 @@
+.info-card{
+    
+    border: 3px solid #486594;
+    border-radius: 10px;
+    height: 210px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2em 1em;
+    white-space: nowrap;
+    color:#486594;
+    background-color: white;
+    margin-top: 4em;
+    position: relative;
+    background: url("../../Pictures/info.png");
+    background-repeat: no-repeat;
+    background-size: 4.5em;
+    background-position: bottom center;
+    
+}
+
+
+.info-date{
+    background-color: white;
+    color:#486594;
+    height:90px;
+    width:90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    bottom: 160px;
+    position: absolute;
+    border: 3px solid #486594;
+}
+
+.info-name{
+    margin-top: 2em;
+}
+
+.info-designation{
+    color:black;
+}
+
