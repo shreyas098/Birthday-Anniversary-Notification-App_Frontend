@@ -64,12 +64,35 @@ class Data{
       try{
         const response = await Axios.get("/api/Associate/getcurrentbirthdays",requestOptions)
        return response
-   }
+      }
 
-   catch(err){
-     console.log("Error ! " + err)
-     return;
-   }
+      catch(err){
+        console.log("Error ! " + err)
+        return;
+      }
+    }
+
+    postBirthdayMessage = async(token, birthdayId, message) =>{
+
+        const requestOptions = {
+          headers:{
+            'Authorization' : 'Bearer '+token
+          }
+        }
+        const data = {
+                receiverAssociateId: birthdayId,
+                message: message
+        }
+        try{
+          const response = await Axios.post("/api/Greeting/sendgreetings",data,requestOptions)
+        return response
+        }
+
+        catch(err){
+          console.log("Error ! " + err)
+          return;
+        }
+
     }
 }
 
