@@ -73,3 +73,10 @@
     overflow: hidden !important;
 }
 
+
+.message-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

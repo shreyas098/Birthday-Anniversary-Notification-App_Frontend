@@ -7,11 +7,19 @@ import "./BirthdayCard.styles.css";
 import TextField from '@material-ui/core/TextField';
 import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
+import Data from "../../DataService/Data";
 
 
 export default function BirthdayCard(props) {
  
-
+ 
+  const handleMessageSubmit = (event)=>{
+      event.preventDefault();
+      Data.postBirthdayMessage(localStorage.getItem("token"), props.id, event.target.message.value)
+      .then((res)=>{
+        console.log(res)
+      })
+  }
   return (
     <div className="birthday-card">
 
@@ -26,7 +34,7 @@ export default function BirthdayCard(props) {
             <h2>{props.name}</h2>
         </div>
 
-        
+        <form className="message-form" action="#" method="post" onSubmit={(e)=>handleMessageSubmit(e)}>
         <div className="message">
         <TextField
           id="outlined-full-width"
@@ -35,10 +43,12 @@ export default function BirthdayCard(props) {
           rows={4}
           placeholder={"Write " + props.name.split(" ")[0] + " your wishes here!"}
           fullWidth
+          name="message"
           margin="normal"
           variant="outlined"
           className="wishes-text"
           required
+         
         />
           </div>
 
@@ -48,14 +58,13 @@ export default function BirthdayCard(props) {
         variant="contained"
         color="primary"
         className="submit-btn"
-        endIcon={<Icon>send</Icon>}
+        endIcon={<Icon>celebration</Icon>}
       >
-        Send
+        Wish
       </Button>
       </div>
+      </form>
 
-      <div className="birthday-svg-1">
-      </div>
     </div>
   );
 }
