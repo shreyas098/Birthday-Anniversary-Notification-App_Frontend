@@ -14,6 +14,10 @@ export default function BirthdayCard(props) {
 
   return (
     <div className="birthday-card">
+
+      <div className="avatar">
+        <img className="dp" src={props.img} alt="dp" />
+      </div>  
         <div className="birth-date">
             Happy {props.date}! 
         </div>
@@ -22,9 +26,6 @@ export default function BirthdayCard(props) {
             <h2>{props.name}</h2>
         </div>
 
-        <div className="help-text">
-            Send {props.name} your Wishes!
-        </div>
         
         <div className="message">
         <TextField
@@ -32,19 +33,21 @@ export default function BirthdayCard(props) {
           style={{ margin: 2 }}
           multiline={true}
           rows={4}
-          placeholder="Write your wishes here *"
+          placeholder={"Write " + props.name.split(" ")[0] + " your wishes here!"}
           fullWidth
           margin="normal"
           variant="outlined"
+          className="wishes-text"
           required
         />
           </div>
 
-      <div className="submit-btn">
+      <div className="submit-btn-div">
       <Button
         type="submit"
         variant="contained"
         color="primary"
+        className="submit-btn"
         endIcon={<Icon>send</Icon>}
       >
         Send

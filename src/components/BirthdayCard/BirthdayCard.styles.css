@@ -1,48 +1,75 @@
 .birthday-card{
     
-    border: 2px solid grey;
-    border-radius: 5px;
-    height: 450px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    height: 480px;
     width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2em;
-    background: url("../../Pictures/birthday2.png"), url("../../Pictures/birthday3.png"), url("../../Pictures/birthday4.png"), url("../../Pictures/birthday1.png");
+    padding: 1.2em 2em;
+    background: url("../../Pictures/banners.png"), url("../../Pictures/birthday2.png"), url("../../Pictures/birthday3.png"), url("../../Pictures/birthday4.png"), url("../../Pictures/birthday1.png");
     background-repeat: no-repeat;
-    background-size: 4.5em;
-    background-position: top left, top right, bottom left, bottom right;
+    background-size: 12.5em,4.5em,4.5em,4.5em,4.5em;
+    background-position: top center, top left, top right, bottom left, bottom right;
+    background-color: #486594;
+    color:white
 }
 
 .name{
-    
-    margin-top: 1.6em;
     word-wrap: normal;
-    padding: 6px 0em 0em 0em;
+    padding: 0px 0em 0em 0em;
 
 }
 
 .birth-date{
-    border: 3px solid #3f51b5;
+    border: 2px solid white;
     padding:0.6em 1em;
     border-radius: 5px;
     font-weight: bold;
-
+    background-color:transparent;
 
 }
 
-.help-text{
+
+.dp{
+    width: 10.5em;
+    border-radius: 50%;
+}
+
+.message{
+    width:100%;
+
+}
+
+.submit-btn-div{
     margin-top: 1em;
     
 }
 
-.message{
-    position: relative;
-    top: 1em;
-    width:100%;
-    margin-top: 2em;
+.submit-btn{
+    background-color: white !important;
+    color:#486594 !important;
+    
 }
 
-.submit-btn{
-    margin-top: 2.5em;
+.wishes-text{
+    border: 2px solid white !important;
+    border-radius: 5px;
+    
 }
+
+::placeholder{
+    color: white !important;
+
+}
+::-webkit-input-placeholder {
+    color: white !important;/*Change the placeholder color*/
+    opacity: 1 !important; /*Change the opacity between 0 and 1*/
+}
+
+.MuiOutlinedInput-inputMultiline{
+    color:white !important;
+    overflow: hidden !important;
+}
+
