@@ -6,7 +6,7 @@ import Axios from "axios";
 class Data{
 
     /*
-      Returns the current looged in associate
+      Returns the current logged in associate data
     */
     getCurrentAssociate = async (token) =>{
 
@@ -22,13 +22,12 @@ class Data{
            }
    
            catch(err){
-             console.log("Error ! " + err)
              return;
            }
     }
     
     /*
-      Returns the associate data whose birthday is not tommorrow but in any upcoming days
+      Returns the associates data whose birthday is in any upcoming days
     */
     getupComingBirthdays = async(token)=>{
 
@@ -40,11 +39,10 @@ class Data{
 
        try{
             const response = await Axios.get("/api/Associate/getupcomingbirthdays",requestOptions)
-            console.log(response)
+            return response
        }
 
        catch(err){
-         console.log("Error ! " + err)
          return;
        }
     }
@@ -72,6 +70,10 @@ class Data{
       }
     }
 
+    /*
+        Responsible for posting the birthday wishes to the api
+    */
+
     postBirthdayMessage = async(token, birthdayId, message) =>{
 
         const requestOptions = {
@@ -89,7 +91,6 @@ class Data{
         }
 
         catch(err){
-          console.log("Error ! " + err)
           return;
         }
 
