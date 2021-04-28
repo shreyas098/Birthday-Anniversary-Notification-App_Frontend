@@ -20,8 +20,6 @@ import Alert from '@material-ui/lab/Alert';
 
 export default function SignIn(props){
 
-    
-
     /*
         TextField holds simple value of inputs
     */
@@ -130,9 +128,7 @@ export default function SignIn(props){
                         </div>
                        : null
                     }
-                    
                     </Container>
-                    
                 </div>
     )
 
