@@ -1,8 +1,6 @@
 import Axios from "axios";
 
 class Auth{
-
-
     /*
         The backend api is configured to return current associate data
         at /api/Associate/getcurrentassociate withtoken in the header
@@ -10,8 +8,10 @@ class Auth{
         Function uses the token earler recevied by the client to request
         for current associate data.
 
-        dataUpdater : the hook updator function that will update the current user data.
-        Currently it is a bool value to indicate if the data fetching was successfull
+        statusUpdator : the hook updator function that will update the status if the authentication
+        was successfull or not
+
+        ##Todo : move the statusupdator in the calling function and resolve the promise.
     */
    validateToken = async(token,statusUpdater)=>{
 
@@ -27,7 +27,6 @@ class Auth{
         }
 
         catch(err){
-          console.log("Error ! " + err)
           statusUpdater(false);  // fetching failed (Do not allow current component to be displayed)
           return;
         }
@@ -38,8 +37,12 @@ class Auth{
 
         updateSigned: Inform the main App (use state hook at App.js) if sign in was successfull or a failure
 
+        updateLoading: Inform the main App that loading has been completed.
+
         updateError: Inform the signin Component (use state hook at Signin.component.jsx) if user
         credentials were wrong and to display an error message.
+
+          ##Todo : move the updators in the calling function and resolve the promise.
 
     */
     signIn = async (username, password,updateSigned, updateLoading, updateError) => {
@@ -63,7 +66,6 @@ class Auth{
         }
 
         catch(err){
-          console.log("Error ! " + err)
           updateError(true);
           updateLoading(false);
           updateSigned(false) // signin was unsucessfull.
@@ -73,7 +75,9 @@ class Auth{
        
     }
 
-    
+    /*
+      updateSigned : The hook updator to clear the state  of signed
+    */
     signOut = (updateSigned)=>{
       localStorage.removeItem("token");
       /*
