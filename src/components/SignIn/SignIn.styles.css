@@ -30,9 +30,5 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    background: url("../../Pictures/Bg.jpg") no-repeat center center fixed;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    
 }
