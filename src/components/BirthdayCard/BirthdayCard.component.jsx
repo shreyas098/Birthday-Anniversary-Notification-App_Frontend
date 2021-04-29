@@ -64,7 +64,8 @@ export default function BirthdayCard(props) {
           className="wishes-text"
           onClick={()=>{updateMessage(false)}}
           required
-          disabled={message}    
+          disabled={message}
+          inputProps={{ maxLength: 500 }}  
           />
         </div>
         <div className="submit-btn-div">
