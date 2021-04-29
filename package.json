@@ -1,7 +1,6 @@
 {
   "name": "birthday-anniversary-notification-app_frontend",
   "version": "0.1.0",
-  "proxy": "http://localhost:25953",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.3",
