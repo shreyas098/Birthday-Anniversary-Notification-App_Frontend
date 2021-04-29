@@ -38,9 +38,11 @@
 
 .info-name{
     margin-top: 2em;
+    text-align: center;
 }
 
 .info-designation{
     color:black;
+    margin-top: -1em;
 }
 

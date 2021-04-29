@@ -50,13 +50,13 @@ const Birthdays = ()=>{
     <div className="info-cards">
     {
         birthdays.length?
-        birthdays.map(({assoicateId, associateName, dob})=>{
+        birthdays.map(({assoicateId, associateName, dob, designation})=>{
 
             // Getting the date and month from datetime
             const date = dob.split("T")[0];
             dob = getNumberWithOrdinal(Number(date.split("-")[2])) + " " + months[Number(date.split("-")[1])]
             
-            return  <InfoCard key={assoicateId} id={assoicateId} name={associateName} date={dob}/>
+            return  <InfoCard key={assoicateId} id={assoicateId} designation={designation} name={associateName} date={dob}/>
         })
         
         :"Loading ..." //Todo a better UI for loading
