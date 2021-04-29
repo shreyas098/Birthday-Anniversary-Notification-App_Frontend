@@ -19,7 +19,7 @@ export default function BirthdayCard(props) {
       <div className="info-name">
         <h2>{props.name}</h2>
         <div className="info-designation">
-          <h4>Software Engineer</h4> {/* todo put he designation from api */}
+          <h4>{props.designation}</h4> 
         </div>
       </div>
     </div>
