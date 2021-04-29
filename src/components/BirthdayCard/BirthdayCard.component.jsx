@@ -30,7 +30,7 @@ export default function BirthdayCard(props) {
         updateMessage(true);
         setTimeout(()=>{
           updateMessage(false);
-        },500)
+        },800)
       })
   }
 
