@@ -17,7 +17,7 @@ class Data{
           }
    
            try{
-                const response = await Axios.get("/api/Associate/getcurrentassociate",requestOptions)
+                const response = await Axios.get("https://birthdaycelebration-demo.azurewebsites.net/api/Associate/getcurrentassociate",requestOptions)
                 return response; 
            }
    
@@ -38,7 +38,7 @@ class Data{
       }
 
        try{
-            const response = await Axios.get("/api/Associate/getupcomingbirthdays",requestOptions)
+            const response = await Axios.get("https://birthdaycelebration-demo.azurewebsites.net/api/Associate/getupcomingbirthdays",requestOptions)
             return response
        }
 
@@ -60,7 +60,7 @@ class Data{
         }
       }
       try{
-        const response = await Axios.get("/api/Associate/getcurrentbirthdays",requestOptions)
+        const response = await Axios.get("https://birthdaycelebration-demo.azurewebsites.net/api/Associate/getcurrentbirthdays",requestOptions)
        return response
       }
 
@@ -86,7 +86,7 @@ class Data{
                 message: message
         }
         try{
-          const response = await Axios.post("/api/Greeting/sendgreetings",data,requestOptions)
+          const response = await Axios.post("https://birthdaycelebration-demo.azurewebsites.net/api/Greeting/sendgreetings",data,requestOptions)
         return response
         }
 

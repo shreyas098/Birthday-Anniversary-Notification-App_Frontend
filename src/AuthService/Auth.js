@@ -22,7 +22,7 @@ class Auth{
        }
 
         try{
-             await Axios.get("/api/Associate/getcurrentassociate",requestOptions)
+             await Axios.get("https://birthdaycelebration-demo.azurewebsites.net/api/Associate/getcurrentassociate",requestOptions)
              statusUpdater(true);  
         }
 
@@ -60,7 +60,7 @@ class Auth{
 
         try{
 
-          const response = await Axios.post('/api/Login/token',body, requestOptions);
+          const response = await Axios.post('https://birthdaycelebration-demo.azurewebsites.net/api/Login/token',body, requestOptions);
           localStorage.setItem("token", response.data.token)
           updateSigned(true)   // signin was successfull
         }
