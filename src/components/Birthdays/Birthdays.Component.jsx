@@ -13,6 +13,8 @@ const getNumberWithOrdinal = (n)=> {
 
 const Birthdays = ()=>{
 
+    
+    const [isLoading, updateIsLoading] = useState(true);
     /*
         To avoid unmounted component state update
     */
@@ -36,6 +38,7 @@ const Birthdays = ()=>{
           {
               if(isMounted) // fix unmount state update error
                 updateBirthdays(res.data)
+                updateIsLoading(false)
           }
         });
 
@@ -49,17 +52,20 @@ const Birthdays = ()=>{
     <h1 className="title">Upcoming Birthdays</h1>
     <div className="info-cards">
     {
-        birthdays.length?
-        birthdays.map(({assoicateId, associateName, dob})=>{
+        isLoading?"Loading ..":
+            birthdays.length?
+            birthdays.map(({assoicateId, associateName, dob, designation})=>{
 
-            // Getting the date and month from datetime
-            const date = dob.split("T")[0];
-            dob = getNumberWithOrdinal(Number(date.split("-")[2])) + " " + months[Number(date.split("-")[1]-1)]
+                // Getting the date and month from datetime
+                const date = dob.split("T")[0];
+                dob = getNumberWithOrdinal(Number(date.split("-")[2])) + " " + months[Number(date.split("-")[1] - 1)]
+                
+                return  <InfoCard key={assoicateId} id={assoicateId} designation={designation} name={associateName} date={dob}/>
+            })
             
-            return  <InfoCard key={assoicateId} id={assoicateId} name={associateName} date={dob}/>
-        })
-        
-        :"Loading ..." //Todo a better UI for loading
+            : <div className="no-birthday-found">
+                    <h2 className="error">Looks like no one is left</h2>
+              </div>
     }
     </div>
     </>
