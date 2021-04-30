@@ -54,7 +54,7 @@ const Birthdays = ()=>{
 
             // Getting the date and month from datetime
             const date = dob.split("T")[0];
-            dob = getNumberWithOrdinal(Number(date.split("-")[2])) + " " + months[Number(date.split("-")[1])]
+            dob = getNumberWithOrdinal(Number(date.split("-")[2])) + " " + months[Number(date.split("-")[1] - 1)]
             
             return  <InfoCard key={assoicateId} id={assoicateId} designation={designation} name={associateName} date={dob}/>
         })
