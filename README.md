@@ -10,3 +10,6 @@ The Kiprosh Birthday Portal provides an interface to send birthday wishes to ass
     yarn start
 ### 3. Run the Backend API
 Available [here](https://github.com/shreyas098/Birthday-Anniversary-Notification-App_Backend-Api). Make sure the associates database has atleast one user for signing in.
+
+## Production 
+For live setup code, checkout the `deploy-heroku` branch.
