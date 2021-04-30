@@ -10,6 +10,8 @@ import {useEffect, useState} from "react";
 
 const Wish = (props)=>{
 
+    // For loading
+    const [isLoading, updateIsLoading] = useState(true);
     // For the associate data whose birthday is tommorrow
     const [birthdayAssociates, updateBirthdayAssociates] = useState({});
 
@@ -26,6 +28,8 @@ const Wish = (props)=>{
             {
                 if(isMounted)
                 updateBirthdayAssociates(res.data)
+                
+                updateIsLoading(false);
             }
         });
 
@@ -42,19 +46,20 @@ const Wish = (props)=>{
                     /*
                         Get all the cards and filter out the current user's own card.
                     */
-                    birthdayAssociates.length?
-                    birthdayAssociates.filter(({assoicateId})=>(
-                        assoicateId!==props.currentUserId
-                    )).map(({assoicateId, associateName, dob, imageUrl})=>{
-                        
-                        // Calculate the age 
-                        dob = new Date().getFullYear() - Number(dob.split("T")[0].split("-")[0])
-                        return <BirthdayCard key={assoicateId} id={assoicateId} img = {imageUrl} name={associateName} date={dob}/>
-                    })
-                    :
-                    <div className="no-birthday-found">
-                    <h2 className="error">Looks like no one was born on this date</h2>
-                    </div>
+                    isLoading?"Loading ...":
+                        birthdayAssociates.length?
+                        birthdayAssociates.filter(({assoicateId})=>(
+                            assoicateId!==props.currentUserId
+                        )).map(({assoicateId, associateName, dob, imageUrl})=>{
+                            
+                            // Calculate the age 
+                            dob = new Date().getFullYear() - Number(dob.split("T")[0].split("-")[0])
+                            return <BirthdayCard key={assoicateId} id={assoicateId} img = {imageUrl} name={associateName} date={dob}/>
+                        })
+                        :
+                        <div className="no-birthday-found">
+                        <h2 className="error">Looks like no one was born on this date</h2>
+                        </div>
                     
                 }
             </div>
