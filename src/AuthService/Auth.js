@@ -11,7 +11,7 @@ class Auth{
         statusUpdator : the hook updator function that will update the status if the authentication
         was successfull or not
 
-        ##Todo : move the statusupdator in the calling function and resolve the promise.
+        
     */
    validateToken = async(token,statusUpdater)=>{
 
@@ -42,7 +42,7 @@ class Auth{
         updateError: Inform the signin Component (use state hook at Signin.component.jsx) if user
         credentials were wrong and to display an error message.
 
-          ##Todo : move the updators in the calling function and resolve the promise.
+  
 
     */
     signIn = async (username, password,updateSigned, updateLoading, updateError) => {
