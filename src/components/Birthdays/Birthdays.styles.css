@@ -5,3 +5,28 @@
     grid-template-columns: repeat(4, 1fr);
 
 }
+
+.no-birthday-found{
+    background: url("../../Pictures/birthday2.png"), url("../../Pictures/birthday3.png"), url("../../Pictures/birthday4.png"), url("../../Pictures/birthday1.png");
+    background-repeat: no-repeat;
+    height:50vh;
+    width: 80vw;
+    background-position: top left, top right, bottom left, bottom right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left:30px;
+}
+
+.no-birthday-found .error{
+    
+    color: #3f51b5;
+    background-color: white;
+    padding:1em;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    top:auto;
+    left:auto;
+    
+}
